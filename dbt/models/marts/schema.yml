@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: dim_moeda
+    description: "Dimensão de pares de moeda"
+    columns:
+      - name: moeda_sk
+        description: "Chave surrogate (hash do par)"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_tempo
+    description: "Dimensão de tempo"
+    columns:
+      - name: tempo_sk
+        description: "Chave surrogate (AAAAMMDDHHMMSS)"
+        data_tests: 
+          - unique
+          - not_null
+
+  - name: fato_cotacao
+    description: "Fato de cotações (granularidade: par de moeda x instante)"
+    columns:
+      - name: moeda_sk
+        data_tests:
+          - not_null
+          - relationships: 
+              arguments:
+                to: ref('dim_moeda')
+                field: moeda_sk
+      - name: tempo_sk
+        data_tests:
+          - not_null
+          - relationships: 
+              arguments:
+                to: ref('dim_tempo')
+                field: tempo_sk

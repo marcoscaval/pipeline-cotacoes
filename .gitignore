@@ -3,3 +3,13 @@ __pycache__/
 *.pyc
 .env
 venv/
+dbt/target/
+dbt/logs
+dbt/dbt_packages/
+*.duckdb
+dbt/.user.yml
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+*.duckdb
+dbt/.user.yml

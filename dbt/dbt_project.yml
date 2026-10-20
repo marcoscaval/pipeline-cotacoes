@@ -1,0 +1,12 @@
+name: pipeline_cotacoes
+version: "1.0.0"
+config-version: 2
+profile: pipeline_cotacoes
+model-paths: ["models"]
+test-paths: ["tests"]
+models:
+  pipeline_cotacoes:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

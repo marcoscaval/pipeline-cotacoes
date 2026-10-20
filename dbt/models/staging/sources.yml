@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: raw
+    meta:
+      external_location: "/opt/airflow/data/{name}.parquet"
+    tables:
+      - name: cotacoes
